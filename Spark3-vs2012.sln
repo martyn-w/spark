@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symplectic.Spark3.Buffer", "Symplectic.Spark3.Buffer\Symplectic.Spark3.Buffer.csproj", "{59ED596B-A306-4D5B-B20C-E17228559A6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symplectic.Spark3.ElementsAPIAbstract", "Symplectic.Spark3.ElementsAPIAbstract\Symplectic.Spark3.ElementsAPIAbstract.csproj", "{09CF2922-B313-4AFF-A6EB-C23913FFD060}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symplectic.Spark3.Rebuffer", "Symplectic.Spark3.Rebuffer\Symplectic.Spark3.Rebuffer.csproj", "{404F508B-E5B7-4D11-B299-467FE28DE1AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symplectic.Spark3.Library", "Symplectic.Spark3.Library\Symplectic.Spark3.Library.csproj", "{B43ADD2F-79D6-4A8D-953D-8ECDC85FF6F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symplectic.Spark3.Website", "Website\Symplectic.Spark3.Website.csproj", "{2AB045FB-F542-42B6-981C-C0A8106FD5CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59ED596B-A306-4D5B-B20C-E17228559A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59ED596B-A306-4D5B-B20C-E17228559A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59ED596B-A306-4D5B-B20C-E17228559A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59ED596B-A306-4D5B-B20C-E17228559A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09CF2922-B313-4AFF-A6EB-C23913FFD060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09CF2922-B313-4AFF-A6EB-C23913FFD060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09CF2922-B313-4AFF-A6EB-C23913FFD060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09CF2922-B313-4AFF-A6EB-C23913FFD060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{404F508B-E5B7-4D11-B299-467FE28DE1AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{404F508B-E5B7-4D11-B299-467FE28DE1AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{404F508B-E5B7-4D11-B299-467FE28DE1AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{404F508B-E5B7-4D11-B299-467FE28DE1AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43ADD2F-79D6-4A8D-953D-8ECDC85FF6F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43ADD2F-79D6-4A8D-953D-8ECDC85FF6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43ADD2F-79D6-4A8D-953D-8ECDC85FF6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43ADD2F-79D6-4A8D-953D-8ECDC85FF6F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB045FB-F542-42B6-981C-C0A8106FD5CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB045FB-F542-42B6-981C-C0A8106FD5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB045FB-F542-42B6-981C-C0A8106FD5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB045FB-F542-42B6-981C-C0A8106FD5CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
