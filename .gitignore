@@ -213,3 +213,11 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+App_Data/
+packages/
+logs/
+Web.config
+App.config
+
+

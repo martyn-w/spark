@@ -1,5 +1,5 @@
 ﻿//  Symplectic Spark
-//  Copyright 2010 Symplectic Ltd
+//  Copyright 2013 Symplectic Ltd
 //  Created by Martyn Whitwell
 
 //  This file is part of Spark.
@@ -47,16 +47,15 @@ namespace Spark3.Rebuffer
         #endregion
 
         #region Configuration Settings
-        private static readonly string apiBaseUrl = ConfigurationSettings.AppSettings["api-base-url"];
-        private static readonly int apiInterval = int.Parse(ConfigurationSettings.AppSettings["api-interval"]);
-        //private static readonly string componentsFolder = ConfigurationSettings.AppSettings["components-folder"];
-        private static readonly string xslFolder = ConfigurationSettings.AppSettings["xsl-folder"];
+        private static readonly string apiBaseUrl = ConfigurationManager.AppSettings["api-base-url"];
+        private static readonly int apiInterval = int.Parse(ConfigurationManager.AppSettings["api-interval"]);
+        private static readonly string xslFolder = ConfigurationManager.AppSettings["xsl-folder"];
         private static readonly string groupTopPublicationsXslFile = Path.Combine(xslFolder, "group-top-publications.xsl");
-        private static readonly string bufferFolder = ConfigurationSettings.AppSettings["buffer-folder"];
+        private static readonly string bufferFolder = ConfigurationManager.AppSettings["buffer-folder"];
         private static readonly string bufferSettingsFile = Path.Combine(bufferFolder, "buffer-settings.xml");
-        private static readonly int timeout = int.Parse(ConfigurationSettings.AppSettings["timeout"]);
-        private static readonly int apiRetryMaxCount = int.Parse(ConfigurationSettings.AppSettings["api-retry-max-count"]);
-        private static readonly int fileRetryMaxCount = int.Parse(ConfigurationSettings.AppSettings["file-retry-max-count"]);
+        private static readonly int timeout = int.Parse(ConfigurationManager.AppSettings["timeout"]);
+        private static readonly int apiRetryMaxCount = int.Parse(ConfigurationManager.AppSettings["api-retry-max-count"]);
+        private static readonly int fileRetryMaxCount = int.Parse(ConfigurationManager.AppSettings["file-retry-max-count"]);
         #endregion
 
         private enum Mode { Differential, Full }

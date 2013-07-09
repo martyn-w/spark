@@ -40,7 +40,7 @@ namespace Symplectic.Spark3.Library
                 xdocAdministration.Add(new XElement("items"));
             }
 
-            string output = null;
+            
 
             if (File.Exists(filenameGroupPersonIndex))
             {

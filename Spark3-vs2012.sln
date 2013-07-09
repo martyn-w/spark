@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symplectic.Spark3.Rebuffer"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symplectic.Spark3.Library", "Symplectic.Spark3.Library\Symplectic.Spark3.Library.csproj", "{B43ADD2F-79D6-4A8D-953D-8ECDC85FF6F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symplectic.Spark3.Website", "Website\Symplectic.Spark3.Website.csproj", "{2AB045FB-F542-42B6-981C-C0A8106FD5CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symplectic.Spark3.Website", "Symplectic.Spark3.Website\Symplectic.Spark3.Website.csproj", "{44C9D77E-602E-4DDE-B317-84618E1814BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +33,10 @@ Global
 		{B43ADD2F-79D6-4A8D-953D-8ECDC85FF6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B43ADD2F-79D6-4A8D-953D-8ECDC85FF6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B43ADD2F-79D6-4A8D-953D-8ECDC85FF6F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2AB045FB-F542-42B6-981C-C0A8106FD5CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2AB045FB-F542-42B6-981C-C0A8106FD5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2AB045FB-F542-42B6-981C-C0A8106FD5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2AB045FB-F542-42B6-981C-C0A8106FD5CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44C9D77E-602E-4DDE-B317-84618E1814BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44C9D77E-602E-4DDE-B317-84618E1814BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44C9D77E-602E-4DDE-B317-84618E1814BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44C9D77E-602E-4DDE-B317-84618E1814BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
