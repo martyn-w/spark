@@ -115,7 +115,7 @@ namespace Symplectic.Spark3.Website.Models
             else
             {
                 if (!BufferFileExists)
-                    return new HtmlString("File " + BufferFilename + " not found");
+                    return new HtmlString("<!--File " + BufferFilename + " not found-->");
                 else
                 {
                     if (!XslFileExists)

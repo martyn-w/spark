@@ -33,6 +33,7 @@ using System.Xml.Linq;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Threading;
+using System.Security;
 
 namespace Spark3.Buffer
 {
@@ -48,8 +49,8 @@ namespace Spark3.Buffer
         #endregion
 
         #region Constructors
-        public Buffer(string bufferFolder, int fileRetryMaxCount, string apiBaseUri, int apiInterval, int timeoutMillisecondsAPI, int apiRetryMaxCount)
-            : base(apiBaseUri, apiInterval, timeoutMillisecondsAPI, apiRetryMaxCount)
+        public Buffer(string bufferFolder, int fileRetryMaxCount, string apiBaseUri, int apiInterval, int timeoutMillisecondsAPI, int apiRetryMaxCount, string apiUsername, string apiPassword, bool apiIgnoreCertificate)
+            : base(apiBaseUri, apiInterval, timeoutMillisecondsAPI, apiRetryMaxCount, apiUsername, apiPassword, apiIgnoreCertificate)
         {
             this.bufferFolder = bufferFolder;
             this.retryMaxCountFile = fileRetryMaxCount;
@@ -123,6 +124,41 @@ namespace Spark3.Buffer
             Logger.DebugFormat("Buffered {0}, {1} records", filename, totalItemCount);
 
             return totalItemCount;
+        }
+
+
+        public int DeleteItems(XElement items, ConfigBufferWriteItems configBufferBufferItems)
+        {
+            //Initialise counters
+            int deleteCount = 0;
+            int skipCount = 0;
+
+            foreach (XElement item in items.Elements())
+            {
+                string filename = Path.Combine(this.bufferFolder, EvaluateXPath(item, configBufferBufferItems.SelectFilename)).ToLower();
+                if (File.Exists(filename))
+                {
+                    try
+                    {
+                        File.Delete(filename);
+                        Logger.InfoFormat("Deleted {0} for {1}", filename, item);
+                        deleteCount++;
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.ErrorFormat("Failed to delete {0} : {1}", filename, ex);
+                    }
+                }
+                else
+                {
+                    Logger.DebugFormat("File not found for deleted user: {0}", filename);
+                    skipCount++;
+                }
+            }
+ 
+            Logger.DebugFormat("Delete {0}, skipped {1} records", deleteCount, skipCount);
+
+            return deleteCount;
         }
         #endregion
 

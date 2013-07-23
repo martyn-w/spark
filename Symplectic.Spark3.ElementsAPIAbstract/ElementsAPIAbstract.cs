@@ -34,6 +34,8 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Collections.Generic;
 using System.Threading;
+using System.Security;
+using System.Text;
 
 namespace Spark3.ElementsAPIAbstract
 {
@@ -71,6 +73,9 @@ namespace Spark3.ElementsAPIAbstract
         private int apiInterval { get; set; }
         private int timeoutMilliseconds { get; set; }
         private int retryMaxCount { get; set; }
+        private CredentialCache credentials { get; set; }
+        private bool useCredentials { get; set; }
+        
         #endregion
 
         #region Delegate definitions
@@ -78,12 +83,32 @@ namespace Spark3.ElementsAPIAbstract
         #endregion
 
         #region Constructors
-        public ElementsAPIAbstract(string apiBaseUri, int apiInterval, int timeoutMilliseconds, int retryMaxCount)
+        public ElementsAPIAbstract(string apiBaseUri, int apiInterval, int timeoutMilliseconds, int retryMaxCount, string apiUsername, string apiPassword, bool apiIgnoreCertificate)
         {
             this.apiBaseUri = apiBaseUri;
             this.apiInterval = apiInterval;
             this.timeoutMilliseconds = timeoutMilliseconds;
             this.retryMaxCount = retryMaxCount;
+            
+
+            if (apiIgnoreCertificate)
+            {
+                Logger.DebugFormat("Ignoring SSL certificates");
+                ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            }
+
+            if (apiUsername != null && apiPassword != null)
+            {
+                Logger.DebugFormat("Using credentials");
+
+                this.credentials = new CredentialCache();
+                this.credentials.Add(new Uri(apiBaseUri), "BASIC", new NetworkCredential(apiUsername, apiPassword));
+                this.useCredentials = true;
+            }
+            else
+            {
+                this.useCredentials = false;
+            }
         }
         #endregion
 
@@ -101,6 +126,16 @@ namespace Spark3.ElementsAPIAbstract
             Logger.DebugFormat("Querying URI: {0}", (this.apiBaseUri + relativeUrl));
 
             WebRequest request = HttpWebRequest.Create(this.apiBaseUri + relativeUrl);
+
+            if (this.useCredentials)
+            {
+                
+                //request.Headers.Add("WWW-Authenticate", "Basic " + this.credentials);
+                request.Credentials = this.credentials;
+                //request.PreAuthenticate = this.useCredentials;
+
+            }
+            
             request.Timeout = this.timeoutMilliseconds;
             try
             {

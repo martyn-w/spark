@@ -32,6 +32,7 @@ using System.Diagnostics;
 using System.Collections;
 using Spark3.Buffer;
 using System.Collections.Generic;
+using System.Security;
 
 using log4net;
 
@@ -56,6 +57,14 @@ namespace Spark3.Rebuffer
         private static readonly int timeout = int.Parse(ConfigurationManager.AppSettings["timeout"]);
         private static readonly int apiRetryMaxCount = int.Parse(ConfigurationManager.AppSettings["api-retry-max-count"]);
         private static readonly int fileRetryMaxCount = int.Parse(ConfigurationManager.AppSettings["file-retry-max-count"]);
+        private static readonly string apiUsername = ConfigurationManager.AppSettings["api-username"];
+        private static readonly string apiPassword = ConfigurationManager.AppSettings["api-password"];
+        private static readonly bool apiIgnoreCertificate = ConfigurationManager.AppSettings["api-ignore-certificate"] == "true";
+
+
+
+            
+
         #endregion
 
         private enum Mode { Differential, Full }
@@ -112,7 +121,7 @@ namespace Spark3.Rebuffer
             Logger.DebugFormat("API RetryMaxCount:\t{0}", apiRetryMaxCount);
             Logger.DebugFormat("File RetryMaxCount:\t{0}", fileRetryMaxCount);
 
-            Spark3.Buffer.Buffer buffer = new Spark3.Buffer.Buffer(bufferFolder, fileRetryMaxCount, apiBaseUrl, apiInterval, timeout, apiRetryMaxCount);
+            Spark3.Buffer.Buffer buffer = new Spark3.Buffer.Buffer(bufferFolder, fileRetryMaxCount, apiBaseUrl, apiInterval, timeout, apiRetryMaxCount, apiUsername, apiPassword, apiIgnoreCertificate);
             int errorCount = 0;
 
             int count = 0;
@@ -286,6 +295,11 @@ namespace Spark3.Rebuffer
                                 Logger.DebugFormat("Buffered {0} {1} records: {2}", configBuffer.Name, uri, processCount);
                                 break;
 
+                            case ConfigBufferBufferSettings.enBufferMode.DeleteItems:
+                                //Get a list of items to delete and delete them
+                                processCount += buffer.DeleteItems(items, configBuffer.DeleteItems);
+                                Logger.DebugFormat("Deleted {0} {1} records: {2}", configBuffer.Name, uri, processCount);
+                                break;
 
                         }
 

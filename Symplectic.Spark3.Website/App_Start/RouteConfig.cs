@@ -15,23 +15,37 @@ namespace Symplectic.Spark3.Website
 
             
 
+            
+
            // routes.MapRoute(
            //     name: "Default",
            //     url: "{controller}/{action}/{id}",
            //     defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
            // );
 
+
             routes.MapRoute(
                 name: "Index",
-                url: "{controller}/{action}",
+                url: "people/index",
                 defaults: new { controller = "People", action = "Index" }
                 );
 
             routes.MapRoute(
                 name: "Details",
-                url: "{controller}/{id}/{*anything}",
-                defaults: new { controller = "People", action = "Details", id = UrlParameter.Optional }
+                url: "people/{id}/{*anything}",
+                defaults: new { controller = "People", action = "Details"}
+//                constraints: new { id = @"\d+" }
                 );
+
+
+            routes.MapRoute(
+                name: "Blank",
+                url: "{controller}/{*anything}",
+                defaults: new { controller = "People", action = "Blank" }
+                );
+
+            
+
 
         }
     }

@@ -174,6 +174,17 @@ namespace Spark3.Rebuffer
                 return this["writeItems"] as ConfigBufferWriteItems;
             }
         }
+
+
+        //<deleteItems select-filename="concat('person\',@proprietary-id,'.xml')" />
+        [ConfigurationProperty("deleteItems", IsRequired = false)]
+        public ConfigBufferWriteItems DeleteItems
+        {
+            get
+            {
+                return this["deleteItems"] as ConfigBufferWriteItems;
+            }
+        }
     }
     #endregion
 
@@ -182,7 +193,7 @@ namespace Spark3.Rebuffer
     {
         public enum enBufferMode
         {
-            BufferAllItems, BufferItem, WriteItems, PostProcess
+            BufferAllItems, BufferItem, WriteItems, PostProcess, DeleteItems
         }
         
         [ConfigurationProperty("buffer-mode", IsRequired = true)]
